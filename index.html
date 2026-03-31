@@ -15,12 +15,22 @@
     <meta property="og:title" content="Er. Dipak Raj Giri — AI & Full Stack Developer" />
     <meta property="og:description" content="Computer Engineer specializing in AI, Machine Learning, and scalable cloud systems." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/images/og-image.jpg" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- SPA redirect handler: restores route from 404.html redirect -->
+    <script>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var redirect = params.get('p');
+        if (redirect) {
+          window.history.replaceState(null, '', redirect);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

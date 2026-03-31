@@ -4,25 +4,16 @@
     <meta charset="UTF-8" />
     <title>Redirecting…</title>
     <script>
-      // GitHub Pages SPA redirect for HashRouter
-      // When GitHub Pages serves a 404 for /about,
-      // this redirects to /#/about so the SPA can handle it.
+      // GitHub Pages SPA redirect for BrowserRouter
+      // When GitHub Pages serves a 404 for /about, /skills etc.,
+      // this redirects to /?p=/about so the SPA can restore the route.
       (function () {
         var l = window.location;
-        var path = l.pathname;
-        if (path && path !== '/') {
-          l.replace(
-            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-            '/#' + path +
-            (l.search || '') +
-            (l.hash || '')
-          );
-        } else {
-          l.replace(
-            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-            '/'
-          );
-        }
+        var path = l.pathname + l.search + l.hash;
+        l.replace(
+          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+          '/?p=' + encodeURIComponent(path)
+        );
       })();
     </script>
   </head>
